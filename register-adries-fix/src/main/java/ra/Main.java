@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * Runs in five steps described below.
  */
 public class Main {
-    private static final boolean PROD = false;
+    private static final boolean PROD = true;
     /* all initialized in initializeResourceFoldersAndPaths() */
     private static String RESOURCES_DIRECTORY_PATH;
     public static String INIT_JSON_DIRECTORY_PATH;
