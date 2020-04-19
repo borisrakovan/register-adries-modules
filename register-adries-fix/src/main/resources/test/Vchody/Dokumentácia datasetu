@@ -1,0 +1,583 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Dokumentácia - Register Adries - Register vchodov (orientačných čísiel)</title>
+<style>
+<!--
+/* Style Definitions */
+h1 h2 h3 h4 h5 {
+    mso-style-link:"Heading 2 Char";
+	margin-right:0in;
+	margin-left:0in;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;
+} 
+strong {
+	font-family:"Arial","sans-serif";
+} 
+em {
+	font-family:"Arial","sans-serif";
+} 
+p {
+	margin-right:0in;
+	margin-left:0in;
+	font-size:small;
+	font-family:"Arial","sans-serif";
+}
+td {
+	padding:.75pt .75pt .75pt .75pt;
+}
+tr {
+	page-break-inside:avoid;
+}
+
+/* List Definitions */
+ol {
+	margin-bottom:0in;font-family:"Arial","sans-serif";
+	font-size:small;
+}
+ul {
+	margin-bottom:0in;font-family:"Arial","sans-serif";
+	font-size:small;
+}
+-->
+</style>
+
+</head>
+
+<body lang=SK>
+
+<h2>Dataset č.8 - Register adries - Register vchodov (orientačných čísiel)</h2>
+
+<p>V tomto dokumente je popísaná schéma jednotlivých dátových zdrojov (tabuliek) tohto datasetu.</p>
+
+<h3>Dátový zdroj - Vchody (orientačné čísla) - zmenové dáta</h3>
+
+<p>Stĺpce tabuľky:</p>
+
+<table border=0 cellspacing=3 cellpadding=0 summary="Stĺpce zmenovej tabuľky">
+ <tr>
+  <th abbr="nazov">
+  <strong>Názov stĺpca</strong>
+  </th>
+  <th abbr="typ">
+  <strong>Dátový typ</strong>
+  </th>
+  <th abbr="popis">
+  <strong>Popis</strong>
+  </th>
+  <th abbr="pozn">
+  <strong>Poznámka</strong>
+  </th>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>changeId</strong></p>
+  </td>
+  <td>
+  <p>long</p>
+  </td>
+  <td>
+  <p>identifikátor zmeny</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>changedAt</strong></p>
+  </td>
+  <td>
+  <p>timestamp</p>
+  </td>
+  <td>
+  <p>dátum a čas vykonania zmeny</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>databaseOperation</strong></p>
+  </td>
+  <td>
+  <p>enumerácia &quot;ChangeType&quot;</p>
+  </td>
+  <td>
+  <p>vykonaná databázová operácia</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>objectId</strong></p>
+  </td>
+  <td>
+  <p>long</p>
+  </td>
+  <td>
+  <p>identifikátor objektu</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>versionId</strong></p>
+  </td>
+  <td>
+  <p>long</p>
+  </td>
+  <td>
+  <p>identifikátor verzie záznamu</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>createdReason</strong></p>
+  </td>
+  <td>
+  <p>enumerácia &quot;CreatedReason&quot;</p>
+  </td>
+  <td>
+  <p>dôvod vytvorenia záznamu</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>validFrom</strong></p>
+  </td>
+  <td>
+  <p>timestamp</p>
+  </td>
+  <td>
+  <p>dátum a čas platnosti začiatku platnosti záznamu (hraničný dátum
+  platnosti od 1.1.1000 má hodnotu NULL)</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>validTo</strong></p>
+  </td>
+  <td>
+  <p>timestamp</p>
+  </td>
+  <td>
+  <p>dátum a čas platnosti konca platnosti záznamu (hraničný dátum
+  platnosti do 31.12.3000 má hodnotu NULL)</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>effectiveDate</strong></p>
+  </td>
+  <td>
+  <p>date</p>
+  </td>
+  <td>
+  <p>dátum účinnosti</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>buildingNumber</strong></p>
+  </td>
+  <td>
+  <p>string</p>
+  </td>
+  <td>
+  <p>orientačné číslo vchodu</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>buildingIndex</strong></p>
+  </td>
+  <td>
+  <p>string</p>
+  </td>
+  <td>
+  <p>identifikátor adresy</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><b>postalCode</b></p>
+  </td>
+  <td>
+  <p>string</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>axisB</strong></p>
+  </td>
+  <td>
+  <p>decimal/double</p>
+  </td>
+  <td>
+  <p>súradnice zemepisnej šírky (ETRS89)</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>axisL</strong></p>
+  </td>
+  <td>
+  <p>decimal/double</p>
+  </td>
+  <td>
+  <p>súradnice zemepisnej dĺžky (ETRS89)</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>propertyRegistrationNumberIdentifier</strong></p>
+  </td>
+  <td>
+  <p>long</p>
+  </td>
+  <td>
+  <p>identifikátor budovy (PropertyRegistrationNumber/objectId)</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>streetNameIdentifier</strong></p>
+  </td>
+  <td>
+  <p>long</p>
+  </td>
+  <td>
+  <p>identifikátor (StreetName/objectId)&nbsp;ulice</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>verifiedAt</strong></p>
+  </td>
+  <td>
+  <p>timestamp</p>
+  </td>
+  <td>
+  <p>dátum a čas verifikovania adresy</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>modified_timestamp</strong></p>
+  </td>
+  <td>
+  <p>timestamp&nbsp;</p>
+  </td>
+  <td>
+  <p>dátum nahratia tohto záznamu do MOD</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>_id</strong></p>
+  </td>
+  <td>
+  <p><strong>int</strong></p>
+  </td>
+  <td>
+  <p><strong>technický identifikátor riadku vygenerovaný automaticky v MODe.</strong></p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+</table>
+
+<p>Poznámka: Všetky položky okrem <em>modified_timestamp</em> a _id sú prebraté z&nbsp;výstupu volania servisu RA_Changes_v20. Položky _id a modified_timestamp
+sa vygenerujú automaticky pri vkladaní do MOD.</p>
+
+<h3>Dátový zdroj - Vchody (orientačné čísla) - konsolidované dáta</h3>
+
+<p>Stĺpce tabuľky:</p>
+
+<table border=0 cellspacing=3 cellpadding=0 summary="Stĺpce konsolidovanej tabuľky">
+ <tr>
+  <th abbr="nazov">
+  <p><strong>Názov stĺpca</strong></p>
+  </th>
+  <th abbr="typ">
+  <p><strong>Dátový typ</strong></p>
+  </th>
+  <th abbr="popis">
+  <p><strong>Popis</strong></p>
+  </th>
+  <th abbr="pozn">
+  <p><strong>Poznámka</strong></p>
+  </th>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>changedAt</strong></p>
+  </td>
+  <td>
+  <p>timestamp</p>
+  </td>
+  <td>
+  <p>dátum a čas vykonania zmeny</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>objectId</strong></p>
+  </td>
+  <td>
+  <p>long</p>
+  </td>
+  <td>
+  <p>identifikátor objektu</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>versionId</strong></p>
+  </td>
+  <td>
+  <p>long</p>
+  </td>
+  <td>
+  <p>identifikátor verzie záznamu</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>validFrom</strong></p>
+  </td>
+  <td>
+  <p>timestamp</p>
+  </td>
+  <td>
+  <p>dátum a čas platnosti začiatku platnosti záznamu (hraničný dátum
+  platnosti od 1.1.1000 má hodnotu NULL)</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>validTo</strong></p>
+  </td>
+  <td>
+  <p>timestamp</p>
+  </td>
+  <td>
+  <p>dátum a čas platnosti konca platnosti záznamu (hraničný dátum
+  platnosti do 31.12.3000 má hodnotu NULL)</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>effectiveDate</strong></p>
+  </td>
+  <td>
+  <p>date</p>
+  </td>
+  <td>
+  <p>dátum účinnosti</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>buildingNumber</strong></p>
+  </td>
+  <td>
+  <p>string</p>
+  </td>
+  <td>
+  <p>orientačné číslo vchodu</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>buildingIndex</strong></p>
+  </td>
+  <td>
+  <p>string</p>
+  </td>
+  <td>
+  <p>identifikátor adresy</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><b>postalCode</b></p>
+  </td>
+  <td>
+  <p>string</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>axisB</strong></p>
+  </td>
+  <td>
+  <p>decimal/double</p>
+  </td>
+  <td>
+  <p>súradnice zemepisnej šírky (ETRS89)</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>axisL</strong></p>
+  </td>
+  <td>
+  <p>decimal/double </p>
+  </td>
+  <td>
+  <p>súradnice zemepisnej dĺžky (ETRS89)</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>propertyRegistrationNumberIdentifier</strong></p>
+  </td>
+  <td>
+  <p>long</p>
+  </td>
+  <td>
+  <p>identifikátor
+  (PropertyRegistrationNumber/objectId)&nbsp;súpisného čísla</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>streetNameIdentifier</strong></p>
+  </td>
+  <td>
+  <p>long</p>
+  </td>
+  <td>
+  <p>identifikátor (StreetName/objectId)&nbsp;ulice</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>verifiedAt</strong></p>
+  </td>
+  <td>
+  <p>timestamp</p>
+  </td>
+  <td>
+  <p>dátum a čas verifikovania adresy</p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p><strong>_id</strong></p>
+  </td>
+  <td>
+  <p><strong>int</strong></p>
+  </td>
+  <td>
+  <p><strong>technický identifikátor riadku vygenerovaný automaticky v MODe</strong></p>
+  </td>
+  <td>
+  <p>&nbsp;</p>
+  </td>
+ </tr>
+</table>
+
+</body>
+
+</html>
