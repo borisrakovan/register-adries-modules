@@ -121,6 +121,28 @@ public class Registers {
             return name;
         }
 
+        public String getChangedResourceDescription() {
+            if (this.registerType == RegisterType.STREET_NAME)
+                return "Jeden riadok v tejto tabuľke reprezentuje jeden zmenový záznam streetNameChange " +
+                        "(zmena názvu ulice), ktorý prišiel v zmenovej dávke z Registra adries. Celá tabuľka" +
+                        " tak obsahuje históriu všetkých zmien v Registri adries pre všetky ulice.";
+            else if (this.registerType == RegisterType.BUILDING_NUMBER)
+                return "Jeden riadok v tejto tabuľke reprezentuje jeden zmenový záznam buildingNumberChange " +
+                        "(zmena vchodu [orientačného čísla]), ktorý prišiel v zmenovej dávke z Registra adries." +
+                        " Celá tabuľka tak obsahuje históriu všetkých zmien v Registri adries pre všetky vchody (orientačné čísla).";
+            return ""; // not needed
+        }
+        public String getConsolidatedResourceDescription() {
+            if (this.registerType == RegisterType.STREET_NAME)
+                return "Jeden riadok v tejto tabuľke reprezentuje konsolidovaný stav konkrétnej časovej verzie objektu" +
+                        " Ulica. Celá tabuľka tak obsahuje všetky časové verzie všetkých Ulíc - aktuálne aj historické.";
+            else if (this.registerType == RegisterType.BUILDING_NUMBER)
+                return "Jeden riadok v tejto tabuľke reprezentuje konsolidovaný stav konkrétnej časovej verzie objektu " +
+                        "Vchod (orientačné číslo). Celá tabuľka tak obsahuje všetky časové verzie všetkých vchodov " +
+                        "(orientačných čísiel) - aktuálne aj historické.";
+            return ""; // not needed
+        }
+
         public String getResourceNameBase() {
             return resourceNameBase;
         }
@@ -151,6 +173,11 @@ public class Registers {
     }
     public static String getDocResourceDescription() {
         return "Obsahuje popis dátových zdrojov (tabuliek) v tomto datasete.";
+    }
+
+    public static String getThirdDSResourceDescription() {
+        return "Jeden riadok v tejto tabuľke reprezentuje jeden počiatočný alebo zmenový záznam. Celá " +
+                "tabuľka tak obsahuje všetky počiatočné záznamy a históriu všetkých ich zmien v Registri adries.";
     }
 
     public static String getArchiveResourceDescription() {

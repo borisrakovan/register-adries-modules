@@ -44,7 +44,9 @@ public class ResourceInitializer {
         String name = register.getResourceNameBase() + " - inicializačné a zmenové dáta";
 
         String packageId = register.getName();
-        JsonObject response = ckanClient.createDatastoreResource(name, packageId);
+        String description = Registers.getThirdDSResourceDescription();
+
+        JsonObject response = ckanClient.createDatastoreResource(name, packageId, description, false);
         String thirdId = response.getJsonObject("result").getString("id");
         register.setThirdId(thirdId);
     }

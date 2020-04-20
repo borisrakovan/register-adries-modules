@@ -40,13 +40,12 @@ import java.util.Map;
 public class CkanClient{
     /* production database */
     private static final String URL = "http://127.0.0.1";
-//    private static final String URL = "https://10.31.123.100";
     /* testing databases */
 //    private static final String TEST_URL = "http://192.168.99.41:5000";
     private static final String TEST_URL = "https://10.31.123.100";
 //    private static final String TEST_URL = "http://localhost";
 
-    /* maximum size of json data to be sent in one request*/
+    /* maximum size of json data to be sent in one request */
     private static final int CHUNK_MAX_SIZE = 20000;
 
     private final RequestBuilder requestBuilder;
@@ -151,7 +150,7 @@ public class CkanClient{
 
     // new
 
-        public JsonObject createDatastoreResource(String name, String packageId) throws IOException {
+        public JsonObject createDatastoreResource(String name, String packageId, String description, boolean consolidated) throws IOException {
         MultipartEntityBuilder builder = MultipartEntityBuilder.create();
         builder.addTextBody("name", name, ContentType.APPLICATION_JSON.withCharset(Charsets.UTF_8))
                 .addTextBody("package_id", packageId,  ContentType.APPLICATION_JSON.withCharset(Charsets.UTF_8))
@@ -161,16 +160,15 @@ public class CkanClient{
                 .addTextBody("validity_description", "validFrom, validTo, effectiveDate",  ContentType.APPLICATION_JSON.withCharset(Charsets.UTF_8))
                 .addTextBody("data_correctness", "correct and exact",  ContentType.APPLICATION_JSON.withCharset(Charsets.UTF_8))
                 .addTextBody("periodicity", "daily",  ContentType.APPLICATION_JSON.withCharset(Charsets.UTF_8))
-                .addTextBody("format", "csv",  ContentType.APPLICATION_JSON.withCharset(Charsets.UTF_8));
-        // todo schema?
-
-        String description = "Jeden riadok v tejto tabuľke reprezentuje jeden počiatočný alebo zmenový záznam. Celá " +
-                "tabuľka tak obsahuje všetky počiatočné záznamy a históriu všetkých ich zmien v Registri adries.";
+                .addTextBody("format", "api, csv",  ContentType.APPLICATION_JSON.withCharset(Charsets.UTF_8));
+//                .addTextBody("schema", "",  ContentType.APPLICATION_JSON.withCharset(Charsets.UTF_8));
 
         builder.addTextBody("description", description, ContentType.APPLICATION_JSON.withCharset(Charsets.UTF_8));
         builder.addTextBody("maintainer", "E8943CC3-CDF2-4368-A29F-FFAC8E09F443", ContentType.APPLICATION_JSON.withCharset(Charsets.UTF_8));
         builder.addTextBody("url_type", "datastore",  ContentType.APPLICATION_JSON.withCharset(Charsets.UTF_8));
-        builder.addTextBody("last_changes_id", "575629",  ContentType.APPLICATION_JSON.withCharset(Charsets.UTF_8));
+        builder.addTextBody("last_changes_id", "0",  ContentType.APPLICATION_JSON.withCharset(Charsets.UTF_8));
+        if (consolidated)
+            builder.addTextBody("last_update_successful", "0",  ContentType.APPLICATION_JSON.withCharset(Charsets.UTF_8));
 
         HttpEntity entity = builder.build();
         return executeHttpPostRequest(entity, "resource_create");

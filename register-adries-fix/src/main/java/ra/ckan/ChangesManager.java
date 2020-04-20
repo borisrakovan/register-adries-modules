@@ -1,5 +1,6 @@
 package ra.ckan;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.http.HttpResponse;
 import ra.CkanClient;
 import ra.Main;
@@ -10,16 +11,19 @@ import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonString;
 import java.io.*;
+import java.net.URL;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 /**
  * Handles all operations concerning changes batches from dataset "register-adries-ra-zmenove-davky".
  */
 public class ChangesManager {
-//    private static final String CHANGES_PACKAGE_ID = "register-adries-ra-zmenove-davky";
-    private static final String CHANGES_PACKAGE_ID = "register-adries-zmenove-davky";
+    private static final String CHANGES_PACKAGE_ID = "register-adries-ra-zmenove-davky"; // PROD
+    //    private static final String CHANGES_PACKAGE_ID = "register-adries-zmenove-davky"; // FIX
     private CkanClient ckanClient;
 
     public ChangesManager(CkanClient ckanClient) {
@@ -28,21 +32,21 @@ public class ChangesManager {
 
     /**
      * @param lastAppliedChangesId changesId of the last changes batch that has been applied before the new initial batch
-     *                            was created.
-     * downloads changes batches (with changesId larger than provided argument) from dataset "register-adries-ra-zmenove-davky" and saves them in
-     * a directory specified by CHANGES_DIRECTORY_PATH constant.
+     *                             was created.
+     *                             downloads changes batches (with changesId larger than provided argument) from dataset "register-adries-ra-zmenove-davky" and saves them in
+     *                             a directory specified by CHANGES_DIRECTORY_PATH constant.
      */
     public void downloadChanges(long lastAppliedChangesId, String changesDirPath) throws Exception {
         JsonObject datasetDetail = ckanClient.callPackageShow(CHANGES_PACKAGE_ID);
 
         JsonArray changesResources = datasetDetail.getJsonObject("result").getJsonArray("resources");
-        for(int i = 0; i < changesResources.size(); i++) {
+        for (int i = 0; i < changesResources.size(); i++) {
 //            System.out.println(i + " \\ " + changesResources.size());
             JsonObject resource = changesResources.getJsonObject(i);
             JsonString initBatchJson = resource.getJsonString("initial_batch");
-            if (initBatchJson == null){
+            if (initBatchJson == null) {
                 JsonString changesIdJson = resource.getJsonString("changes_id");
-                if(changesIdJson != null){
+                if (changesIdJson != null) {
                     long changesId = Long.parseLong(changesIdJson.getString());
                     if (changesId > lastAppliedChangesId) {
 //                        JsonString fileNameJson = resource.getJsonString("file_name");
@@ -70,6 +74,29 @@ public class ChangesManager {
             }
         }
     }
+    public void downloadChanges2018(String changesDirPath) throws Exception {
+        String url = "https://data.gov.sk/dataset/7c196993-fcd2-407c-ac6c-f4a4ca68cef5/resource/12637ee7-9bd4-4e7d-a680-abefa27e8d6c/download/zmenovedavky0612.2018.zip";
+        File zip = new File(changesDirPath + "changes2018.zip");
+        FileUtils.copyURLToFile(new URL(url), zip);
+
+        ZipInputStream zis = new ZipInputStream(new FileInputStream(zip));
+        ZipEntry zipEntry = zis.getNextEntry();
+        byte[] buffer = new byte[1024];
+        while (zipEntry != null) {
+            File newFile = new File(changesDirPath + zipEntry.getName());
+            FileOutputStream fos = new FileOutputStream(newFile);
+            int len;
+            while ((len = zis.read(buffer)) > 0) {
+                fos.write(buffer, 0, len);
+            }
+            fos.close();
+            zipEntry = zis.getNextEntry();
+        }
+        zis.closeEntry();
+        zis.close();
+        FileUtils.deleteQuietly(zip);
+    }
+
 
     /**
      * uploads the changes batches to the appropriate datastore table with either insert or upsert method, depending on

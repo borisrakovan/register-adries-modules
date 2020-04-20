@@ -9,7 +9,9 @@ import java.io.*;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -60,9 +62,10 @@ public class Main {
                 }
             }
         }
-
-
+//        File dir = new File(INIT_XML_DIRECTORY_PATH + "old/");
+//        removeNameSpacesAndInvalidTagsFromXml(Arrays.asList(Objects.requireNonNull(dir.listFiles())));
         XmlToJsonTransformer transformer = new XmlToJsonTransformer();
+        System.out.println("THE TRANSFORMATION PROCESS IS GOING TO BEGIN.");
         for(Registers.Register register : registers.getAllRegisters()){
             File initBatch = new File(INIT_XML_DIRECTORY_PATH + register.getXmlFileName());
             transformer.transformXmlToJson(initBatch, register);
@@ -123,34 +126,39 @@ public class Main {
 //     * some of the XML init contain strange namespaces in the first tag, these have to be removed in order for transformer to work
 //     * also some of the batches were contained invalid tags that had to be removed
 //     */
-//    private static void removeNameSpacesAndInvalidTagsFromXml(List<File> files) throws IOException {
-//        for(File file : files) {
-//            boolean deletingTags = file.getName().endsWith("07.xml") || file.getName().endsWith("06.xml");
-//            System.out.println("Moving on to " + file.getName());
-//            BufferedReader reader = new BufferedReader(new FileReader(file));
-//            BufferedWriter writer = new BufferedWriter(new FileWriter(new File(INIT_XML_DIRECTORY_PATH + file.getName())));
-//            int i = 0;
-//            String line;
-//            while((line = reader.readLine()) != null){
-//                i++;
-//                if (i == 2){
+    private static void removeNameSpacesAndInvalidTagsFromXml(List<File> files) throws IOException {
+        for(File file : files) {
+            if (file.isDirectory())
+                continue;
+            boolean deletingTags = file.getName().endsWith("07.xml") || file.getName().endsWith("06.xml");
+            System.out.println("Moving on to " + file.getName());
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(new File(INIT_XML_DIRECTORY_PATH + file.getName())));
+            int i = 0;
+            String line;
+            while((line = reader.readLine()) != null){
+                i++;
+                if (i == 2) {
+                    line = line.replace(":ns0", "");
+                    line = line.replace("ns0:", "");
+
 //                    if (line.contains(" xmlns:ns0=\"http://www.minv.sk/ra\"")){
 ////                        line = line.replace("ns0:", "").replace(" xmlns:ns0=\"http://www.minv.sk/ra\"", "");
-//                        line = line.replace(" xmlns:ns0=\"http://www.minv.sk/ra\"", "");
 //                    }
 //                    else {
 //                        line = line.replace(" xmlns=\"http://www.minv.sk/ra\"", "");
 //                    }
-//                }
-//                if(line.contains("ns0:")) line = line.replace("ns0:", "");
-//                if(deletingTags && line.contains("</register>")) continue;
-//                writer.write(line + "\n");
-//            }
-//            writer.write("</register>" + "\n");
-//            writer.close();
-//            reader.close();
-//        }
-//    }
+                }
+                if(line.contains("ns0:")) line = line.replace("ns0:", "");
+                if(deletingTags && line.contains("</register>")) continue;
+                writer.write(line + "\n");
+            }
+            if (deletingTags)
+                writer.write("</register>" + "\n");
+            writer.close();
+            reader.close();
+        }
+    }
 
 }
 

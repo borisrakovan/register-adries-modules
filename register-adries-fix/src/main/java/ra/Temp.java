@@ -16,19 +16,9 @@ import java.util.*;
 
 public class Temp {
 //
-    public static void main(String[] args) throws IOException {
-        File file = new File("/home/boris/Desktop/microcomp_2020/init_batch/xml/DavkaInit_20200110_edov2ra-07.xml");
-
-        BufferedReader br = new BufferedReader(new FileReader(file));
-        String line;
-        int cnt = 0;
-        String q = "</buildingNumberChange>";
-        while ((line = br.readLine()) != null) {
-            if (line.contains(q))
-                cnt++;
-        }
-        br.close();
-        System.out.println(cnt + " matches."); // 1533999 + 1080 ?= 1535079 not 1535074
+    public static void main(String[] args) throws Exception {
+//        ChangesManager ch = new ChangesManager(new CkanClient("", false));
+//        ch.downloadChanges2018("/home/boris/Desktop/testt/");
     }
 
 

@@ -30,11 +30,9 @@ public class Main {
     private static String DOC_DIRECTORY_PATH;
     static String DEBUG_FILE_PATH;
 
-    // currently contains fix server resource ids
-    static final String RESOURCE_IDS_FILE_PATH = "/resource_ids.txt";
+//    static final String RESOURCE_IDS_FILE_PATH = "/resource_ids.txt";
+    static final String RESOURCE_IDS_FILE_PATH = "/resource_ids_prod.txt";
     private static final String THIRD_DATASTORE_IDS_FILENAME = "init_changed_ids.txt";
-    // todo uncomment when working with DATA.GOV.SK
-//    public static final String RESOURCE_IDS_FILE_PATH = "/resource_ids_prod.txt";
 
 
     /* SETTINGS, used only for testing purposes */
@@ -114,7 +112,7 @@ public class Main {
             }
             if(lastAppliedChangesId < 0){
                 throw new RuntimeException("2nd argument must be a positive value.");
-            } else uploadingChanges = lastAppliedChangesId != 0;
+            } else uploadingChanges = true;
         }
 
 
@@ -123,46 +121,42 @@ public class Main {
 
         CkanClient ckanClient = new CkanClient(apiKey, false);
 
-        TestDataCreator test = new TestDataCreator(registers, ckanClient, TEST_ORG_ID, TEST_SUFFIX);
+//        TestDataCreator test = new TestDataCreator(registers, ckanClient, TEST_ORG_ID, TEST_SUFFIX);
         ResourceManager resourceManager = new ResourceManager(ckanClient);
         ResourceInitializer resourceInit = new ResourceInitializer(ckanClient);
         ChangesManager changesManager = new ChangesManager(ckanClient);
         InitialTest tester = new InitialTest(ckanClient);
 
-        if(RUN_DELETE_TEST) {
-            test.runDelete(ZIP_DIRECTORY_PATH);
-            System.exit(0);
-        }
-
-        if (RUN_INIT_TEST) {
-            test.createTestingRegisters();
-            System.exit(0);
-        }
+//        if(RUN_DELETE_TEST) {
+//            test.runDelete(ZIP_DIRECTORY_PATH);
+//            System.exit(0);
+//        }
+//
+//        if (RUN_INIT_TEST) {
+//            test.createTestingRegisters();
+//            System.exit(0);
+//        }
 
         initializeResourceIdsFromFile(registers, RESOURCE_IDS_FILE_PATH);
 
         tester.runInitialTest(RESOURCES_DIRECTORY_PATH, TEST_SUFFIX);
 
-        if (uploadingChanges) {
-            changesManager.downloadChanges(lastAppliedChangesId, CHANGES_DIRECTORY_PATH);
-        }
-        //RESISTERS PRE-TEST
+        // REGISTERS PRE-TEST
     	System.out.println("RUNNING TESTS FOR REGISTERS IDs");
         for(Registers.Register register : registers.getAllRegisters()) {
-        	System.out.println("RUNNING TEST FOR REGISTER " + register.getName());
         	if (PROD && (register.getRegisterType() == XmlToJsonTransformer.RegisterType.STREET_NAME ||
                     register.getRegisterType() == XmlToJsonTransformer.RegisterType.BUILDING_NUMBER)) {
         	    continue;
             }
+        	System.out.println("RUNNING TEST FOR REGISTER " + register.getName());
         	JsonObject json = ckanClient.callResourceShow(register.getChangedId());
         	if (json.getBoolean("success")) {
         	    boolean dsActive = json.getJsonObject("result").getBoolean("datastore_active");
             	System.out.println(" \t"+register.getChangedId()+ " datastore active: "+ dsActive);
             	if (!dsActive)
             	    throw new RuntimeException("CKAN resource that should contain a datastore does not contain a datastore. Cannot proceed");
-
         	} else {
-        		System.out.println(" \t"+register.getChangedId()+ " - ID NOT VALID");
+                throw new RuntimeException(" \t"+register.getChangedId()+ " - ID NOT VALID");
         	}
         	json = ckanClient.callResourceShow(register.getConsolidatedId());
         	if (json.getBoolean("success")) {
@@ -172,12 +166,18 @@ public class Main {
                     throw new RuntimeException("CKAN resource that should contain a datastore does not contain a datastore. Cannot proceed");
 
             } else {
-        		System.out.println(" \t"+register.getConsolidatedId()+ " - ID NOT VALID");
+                throw new RuntimeException(" \t"+register.getConsolidatedId()+ " - ID NOT VALID");
         	}
         }
-        
-        
-        for(Registers.Register register : registers.getAllRegisters()) {
+        if (uploadingChanges) {
+            System.out.println("Going to download all changes files that will be " +
+                    "applied in the end of the process for each register.");
+            changesManager.downloadChanges2018(CHANGES_DIRECTORY_PATH);
+            changesManager.downloadChanges(lastAppliedChangesId, CHANGES_DIRECTORY_PATH);
+            System.out.println("ALL NECESSARY CHANGES FILES HAVE BEEN SUCCESSFULLY STORED.");
+        }
+
+        for (Registers.Register register : registers.getAllRegisters()) {
 
             System.out.println("\nSTARTING THE CONSOLIDATION PROCESS FOR REGISTER *" + register.getResourceNameBase() + "*\n");
             
@@ -194,18 +194,19 @@ public class Main {
                 System.out.println("Replacing datastore resources for " + register.getRegisterType() + " with new ones.");
                 String name = register.getResourceNameBase() + " - zmenové dáta";
                 String packageId = register.getName();
-
-                JsonObject result = ckanClient.createDatastoreResource(name, packageId);
+                String description = register.getChangedResourceDescription();
+                JsonObject result = ckanClient.createDatastoreResource(name, packageId, description, false);
                 String changedId = result.getJsonObject("result").getString("id");
                 register.setChangedId(changedId);
 
                 name = register.getResourceNameBase() + " - konsolidované dáta";
-                result = ckanClient.createDatastoreResource(name, packageId);
+                description = register.getConsolidatedResourceDescription();
+                result = ckanClient.createDatastoreResource(name, packageId, description, true);
                 String consolidatedId = result.getJsonObject("result").getString("id");
                 register.setConsolidatedId(consolidatedId);
             }
             /* STEP 3: Upload new documentation (+ point the datastore resources to it) and new initial batches. */
-            resourceManager.uploadDocsAndInitBatches(register, DOC_DIRECTORY_PATH, INIT_XML_DIRECTORY_PATH,TEST_SUFFIX);
+            resourceManager.uploadDocsAndInitBatches(register, DOC_DIRECTORY_PATH, INIT_XML_DIRECTORY_PATH, TEST_SUFFIX);
 //            resourceManager.uploadZipFiles(register, ZIP_DIRECTORY_PATH, TEST_SUFFIX);
             System.out.println("\nNEW DOCUMENTATIONS AND NEW INITIAL BATCHES HAVE BEEN SUCCESSFULLY UPLOADED.\n");
 
@@ -220,7 +221,6 @@ public class Main {
                 System.out.println("\nALL NECESSARY CHANGES BATCHES HAVE BEEN SUCCESSFULLY APPLIED.\n");
             }
         }
-
         /* delete temp files and prepare for the next use */
         System.out.println("going to delete temporary files created during the process and prepare for the next use.");
         FileUtils.cleanDirectory(new File(RESOURCES_DIRECTORY_PATH + "temp/"));
@@ -366,7 +366,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
         String line;
         String[] parts;
-        int i = 0;
+
         while ((line = br.readLine()) != null) {
             if ("".equals(line)) continue;
             parts = line.split(" ");

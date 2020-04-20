@@ -6,7 +6,37 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2667bf4-e5b3-4c4b-8003-5126f89e2785" name="Default Changelist" comment="" />
+    <list default="true" id="b2667bf4-e5b3-4c4b-8003-5126f89e2785" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/register_adries_fix_jar/register-adries-fix.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/register_adries_fix_jar/register-adries-fix.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ra/CkanClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ra/CkanClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ra/InitialTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ra/InitialTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ra/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ra/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ra/Registers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ra/Registers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ra/Temp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ra/Temp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ra/ckan/ChangesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ra/ckan/ChangesManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ra/ckan/ResourceInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ra/ckan/ResourceInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ra/ckan/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ra/ckan/ResourceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ra/transform/XmlToJsonTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ra/transform/XmlToJsonTransformer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/resource_ids_prod.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/resource_ids_prod.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/testfile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/testfile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ra/CkanClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/CkanClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ra/InitialTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/InitialTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ra/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ra/Registers$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/Registers$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ra/Registers$Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/Registers$Register.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ra/Registers.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/Registers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ra/Temp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/Temp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ra/TestDataCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/TestDataCreator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ra/ckan/ChangesManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/ckan/ChangesManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ra/ckan/ResourceInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/ckan/ResourceInitializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ra/ckan/ResourceManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/ckan/ResourceManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resource_ids_prod.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/resource_ids_prod.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/testfile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/testfile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transformation/src/main/java/ra/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../transformation/src/main/java/ra/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transformation/target/classes/ra/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../transformation/target/classes/ra/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transformation/target/classes/ra/transform/XmlToJsonTransformer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../transformation/target/classes/ra/transform/XmlToJsonTransformer.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -169,33 +199,33 @@
     </state>
     <state x="440" y="164" key="FileChooserDialogImpl/57.24.1503.719@57.24.1503.719" timestamp="1582668563689" />
     <state x="440" y="190" key="FileChooserDialogImpl/57.24.1503.854@57.24.1503.854" timestamp="1585153894469" />
-    <state width="1725" height="185" key="GridCell.Tab.0.bottom" timestamp="1587130695177">
-      <screen x="57" y="24" width="1771" height="904" />
+    <state width="1725" height="210" key="GridCell.Tab.0.bottom" timestamp="1587308965307">
+      <screen x="57" y="24" width="1771" height="1004" />
     </state>
     <state width="1457" height="239" key="GridCell.Tab.0.bottom/57.24.1503.719@57.24.1503.719" timestamp="1585331273705" />
     <state width="1457" height="131" key="GridCell.Tab.0.bottom/57.24.1503.854@57.24.1503.854" timestamp="1585657293437" />
-    <state width="1725" height="222" key="GridCell.Tab.0.bottom/57.24.1771.1004@57.24.1771.1004" timestamp="1586266022064" />
+    <state width="1725" height="210" key="GridCell.Tab.0.bottom/57.24.1771.1004@57.24.1771.1004" timestamp="1587308965307" />
     <state width="1725" height="185" key="GridCell.Tab.0.bottom/57.24.1771.904@57.24.1771.904" timestamp="1587130695177" />
-    <state width="1725" height="185" key="GridCell.Tab.0.center" timestamp="1587130695175">
-      <screen x="57" y="24" width="1771" height="904" />
+    <state width="1725" height="210" key="GridCell.Tab.0.center" timestamp="1587308965305">
+      <screen x="57" y="24" width="1771" height="1004" />
     </state>
     <state width="1457" height="239" key="GridCell.Tab.0.center/57.24.1503.719@57.24.1503.719" timestamp="1585331273704" />
     <state width="1457" height="131" key="GridCell.Tab.0.center/57.24.1503.854@57.24.1503.854" timestamp="1585657293430" />
-    <state width="1725" height="222" key="GridCell.Tab.0.center/57.24.1771.1004@57.24.1771.1004" timestamp="1586266022064" />
+    <state width="1725" height="210" key="GridCell.Tab.0.center/57.24.1771.1004@57.24.1771.1004" timestamp="1587308965305" />
     <state width="1725" height="185" key="GridCell.Tab.0.center/57.24.1771.904@57.24.1771.904" timestamp="1587130695175" />
-    <state width="1725" height="185" key="GridCell.Tab.0.left" timestamp="1587130695175">
-      <screen x="57" y="24" width="1771" height="904" />
+    <state width="1725" height="210" key="GridCell.Tab.0.left" timestamp="1587308965299">
+      <screen x="57" y="24" width="1771" height="1004" />
     </state>
     <state width="1457" height="239" key="GridCell.Tab.0.left/57.24.1503.719@57.24.1503.719" timestamp="1585331273703" />
     <state width="1457" height="131" key="GridCell.Tab.0.left/57.24.1503.854@57.24.1503.854" timestamp="1585657293429" />
-    <state width="1725" height="222" key="GridCell.Tab.0.left/57.24.1771.1004@57.24.1771.1004" timestamp="1586266022063" />
+    <state width="1725" height="210" key="GridCell.Tab.0.left/57.24.1771.1004@57.24.1771.1004" timestamp="1587308965299" />
     <state width="1725" height="185" key="GridCell.Tab.0.left/57.24.1771.904@57.24.1771.904" timestamp="1587130695175" />
-    <state width="1725" height="185" key="GridCell.Tab.0.right" timestamp="1587130695176">
-      <screen x="57" y="24" width="1771" height="904" />
+    <state width="1725" height="210" key="GridCell.Tab.0.right" timestamp="1587308965305">
+      <screen x="57" y="24" width="1771" height="1004" />
     </state>
     <state width="1457" height="239" key="GridCell.Tab.0.right/57.24.1503.719@57.24.1503.719" timestamp="1585331273705" />
     <state width="1457" height="131" key="GridCell.Tab.0.right/57.24.1503.854@57.24.1503.854" timestamp="1585657293436" />
-    <state width="1725" height="222" key="GridCell.Tab.0.right/57.24.1771.1004@57.24.1771.1004" timestamp="1586266022064" />
+    <state width="1725" height="210" key="GridCell.Tab.0.right/57.24.1771.1004@57.24.1771.1004" timestamp="1587308965305" />
     <state width="1725" height="185" key="GridCell.Tab.0.right/57.24.1771.904@57.24.1771.904" timestamp="1587130695176" />
     <state x="296" y="24" key="SettingsEditor" timestamp="1585153901642">
       <screen x="57" y="24" width="1503" height="854" />
@@ -220,17 +250,17 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/Registers.java</url>
-          <line>152</line>
+          <line>174</line>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/Registers.java</url>
-          <line>157</line>
+          <line>184</line>
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/Registers.java</url>
-          <line>162</line>
+          <line>189</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -240,7 +270,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/ckan/ResourceManager.java</url>
-          <line>197</line>
+          <line>203</line>
           <option name="timeStamp" value="80" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -269,48 +299,43 @@
           <option name="timeStamp" value="108" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ra/InitialTest.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="110" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/CkanClient.java</url>
-          <line>361</line>
+          <line>359</line>
           <option name="timeStamp" value="111" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/CkanClient.java</url>
-          <line>371</line>
+          <line>369</line>
           <option name="timeStamp" value="112" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/CkanClient.java</url>
-          <line>326</line>
+          <line>324</line>
           <option name="timeStamp" value="113" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/CkanClient.java</url>
-          <line>335</line>
+          <line>333</line>
           <option name="timeStamp" value="114" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/CkanClient.java</url>
-          <line>312</line>
+          <line>310</line>
           <option name="timeStamp" value="115" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/CkanClient.java</url>
-          <line>305</line>
+          <line>303</line>
           <option name="timeStamp" value="116" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/Registers.java</url>
-          <line>264</line>
+          <line>291</line>
           <option name="timeStamp" value="117" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/Registers.java</url>
-          <line>269</line>
+          <line>296</line>
           <option name="timeStamp" value="118" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -330,57 +355,42 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/Main.java</url>
-          <line>213</line>
+          <line>214</line>
           <option name="timeStamp" value="122" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/ckan/ChangesManager.java</url>
-          <line>108</line>
+          <line>135</line>
           <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/Main.java</url>
-          <line>228</line>
-          <option name="timeStamp" value="128" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ra/Main.java</url>
-          <line>232</line>
-          <option name="timeStamp" value="129" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ra/Main.java</url>
-          <line>62</line>
+          <line>60</line>
           <option name="timeStamp" value="132" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/Main.java</url>
-          <line>96</line>
+          <line>94</line>
           <option name="timeStamp" value="133" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/CkanClient.java</url>
-          <line>172</line>
+          <line>168</line>
           <option name="timeStamp" value="135" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/Main.java</url>
-          <line>141</line>
-          <option name="timeStamp" value="136" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ra/Main.java</url>
-          <line>154</line>
+          <line>148</line>
           <option name="timeStamp" value="137" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/Main.java</url>
-          <line>152</line>
+          <line>146</line>
           <option name="timeStamp" value="138" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/Main.java</url>
-          <line>153</line>
+          <line>147</line>
           <option name="timeStamp" value="139" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -400,12 +410,37 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/Main.java</url>
-          <line>205</line>
+          <line>206</line>
           <option name="timeStamp" value="144" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ra/Main.java</url>
+          <line>174</line>
+          <option name="timeStamp" value="145" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ra/Main.java</url>
+          <line>388</line>
+          <option name="timeStamp" value="146" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ra/Main.java</url>
+          <line>389</line>
+          <option name="timeStamp" value="147" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ra/Main.java</url>
+          <line>390</line>
+          <option name="timeStamp" value="148" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ra/Main.java</url>
+          <line>391</line>
+          <option name="timeStamp" value="149" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ra/CkanClient.java</url>
-          <line>125</line>
+          <line>124</line>
           <properties class="ra.CkanClient" method="createResource">
             <option name="EMULATED" value="true" />
           </properties>
@@ -413,7 +448,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ra/CkanClient.java</url>
-          <line>153</line>
+          <line>152</line>
           <properties class="ra.CkanClient" method="createDatastoreResource">
             <option name="EMULATED" value="true" />
           </properties>
@@ -421,8 +456,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/main/java/ra/ckan/ChangesManager.java</url>
-          <line>21</line>
-          <properties field="CHANGES_PACKAGE_ID" class="ra.ckan.ChangesManager" />
+          <line>25</line>
+          <properties field="ckanClient" class="ra.ckan.ChangesManager" />
           <option name="timeStamp" value="134" />
         </line-breakpoint>
       </breakpoints>

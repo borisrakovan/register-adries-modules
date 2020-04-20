@@ -26,7 +26,6 @@ public class InitialTest {
         FileUtils.copyInputStreamToFile(is, testFile);
         is.close();
 
-//        File testFile = new File("src/main/resources/testfile.xml");
         System.out.println("trying to upload testing file to dataset " + testDatasetName);
         JsonObject response = ckanClient.createResource("upload test", testDatasetName, "irregularly", "xml", "test", testFile);
         System.out.println("file successfully uploaded");
@@ -37,6 +36,6 @@ public class InitialTest {
         System.out.println("testing file successfully deleted");
         System.out.println("\nCKAN API calls should work properly. Test passed.\n");
 
-//        FileUtils.deleteQuietly(testFile);
+        FileUtils.deleteQuietly(testFile);
     }
 }

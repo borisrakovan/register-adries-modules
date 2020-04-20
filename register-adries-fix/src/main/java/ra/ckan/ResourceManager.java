@@ -136,11 +136,17 @@ public class ResourceManager {
         JsonObject response = ckanClient.createResource("Dokumentácia datasetu", register.getName() + testSuffix,
                 "irregularly","HTML", Registers.getDocResourceDescription(), doc);
         JsonString url = response.getJsonObject("result").getJsonString("url");
-        if (url != null){
+
+        if (url != null) {
+            try {
+
             Map<String, String> paramsToUpdate = new HashMap<>();
             paramsToUpdate.put("schema", url.getString());
             ckanClient.updateResource(register.getChangedId(), paramsToUpdate);
             ckanClient.updateResource(register.getConsolidatedId(), paramsToUpdate);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         File init = new File(initXmlPath + register.getXmlFileName());

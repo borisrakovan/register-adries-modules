@@ -242,7 +242,7 @@ public class XmlToJsonTransformer {
                     result = date.format(dtf);
 //                    System.out.println("   after: " + result);
 
-                } else if ("verifiedAt".equalsIgnoreCase(jsonName)) { // TODO
+                } else if ("verifiedAt".equalsIgnoreCase(jsonName)) {
 //                    System.out.println("attr: " + jsonName);
 //                    System.out.println("  before: " + result);
                     LocalDateTime date = LocalDateTime.parse(result);
