@@ -57,7 +57,7 @@ public class Main {
         if(args.length == 0 || args.length > 3) {
             throw new RuntimeException("1 or 2 arguments must be provided. See instructions for further details.");
         }
-        /* path for RA-muleprocess for 3rd datastore*/
+        /* patch for RA-muleprocess for 3rd datastore*/
         if (args[0].equalsIgnoreCase("-changes")) {
             if (args.length < 2) {
                 throw new RuntimeException("Path to resource folder was not provided. See instructions for further details.");

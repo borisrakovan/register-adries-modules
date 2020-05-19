@@ -9,33 +9,12 @@
     <list default="true" id="b2667bf4-e5b3-4c4b-8003-5126f89e2785" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/register_adries_fix_jar/register-adries-fix.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/register_adries_fix_jar/register-adries-fix.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ra/CkanClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ra/CkanClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ra/InitialTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ra/InitialTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/register_adries_fix_jar/register-adries-fix_fix.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ra/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ra/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ra/Registers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ra/Registers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ra/Temp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ra/Temp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ra/ckan/ChangesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ra/ckan/ChangesManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ra/ckan/ResourceInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ra/ckan/ResourceInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ra/ckan/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ra/ckan/ResourceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ra/transform/XmlToJsonTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ra/transform/XmlToJsonTransformer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/resource_ids_prod.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/resource_ids_prod.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/testfile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/testfile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ra/CkanClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/CkanClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ra/InitialTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/InitialTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ra/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ra/Registers$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/Registers$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ra/Registers$Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/Registers$Register.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ra/Registers.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/Registers.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ra/Temp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/Temp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ra/TestDataCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/TestDataCreator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ra/ckan/ChangesManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/ckan/ChangesManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ra/ckan/ResourceInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/ckan/ResourceInitializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ra/ckan/ResourceManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ra/ckan/ResourceManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/resource_ids_prod.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/resource_ids_prod.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/testfile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/testfile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transformation/src/main/java/ra/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../transformation/src/main/java/ra/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transformation/target/classes/ra/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../transformation/target/classes/ra/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transformation/target/classes/ra/transform/XmlToJsonTransformer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../transformation/target/classes/ra/transform/XmlToJsonTransformer.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +61,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/transform" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Temp">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="InitBatchConverter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ra.transform.InitBatchConverter" />
       <module name="register-adries-fix" />
@@ -139,9 +118,9 @@
     <list>
       <item itemvalue="Application.InitBatchConverter" />
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Utils" />
-      <item itemvalue="Application.Tempmain" />
       <item itemvalue="Application.Temp" />
+      <item itemvalue="Application.Tempmain" />
+      <item itemvalue="Application.Utils" />
     </list>
     <recent_temporary>
       <list>
@@ -194,6 +173,10 @@
       <screen x="57" y="24" width="1503" height="854" />
     </state>
     <state x="546" y="232" key="#com.intellij.ide.util.TreeClassChooserDialog/57.24.1503.854@57.24.1503.854" timestamp="1585153866827" />
+    <state x="413" y="61" key="CommitChangelistDialog2" timestamp="1587376517289">
+      <screen x="57" y="24" width="1771" height="1004" />
+    </state>
+    <state x="413" y="61" key="CommitChangelistDialog2/57.24.1771.1004@57.24.1771.1004" timestamp="1587376517289" />
     <state x="440" y="190" key="FileChooserDialogImpl" timestamp="1585153894469">
       <screen x="57" y="24" width="1503" height="854" />
     </state>
@@ -227,10 +210,11 @@
     <state width="1457" height="131" key="GridCell.Tab.0.right/57.24.1503.854@57.24.1503.854" timestamp="1585657293436" />
     <state width="1725" height="210" key="GridCell.Tab.0.right/57.24.1771.1004@57.24.1771.1004" timestamp="1587308965305" />
     <state width="1725" height="185" key="GridCell.Tab.0.right/57.24.1771.904@57.24.1771.904" timestamp="1587130695176" />
-    <state x="296" y="24" key="SettingsEditor" timestamp="1585153901642">
-      <screen x="57" y="24" width="1503" height="854" />
+    <state x="339" y="24" key="SettingsEditor" timestamp="1587376823388">
+      <screen x="57" y="24" width="1771" height="1004" />
     </state>
     <state x="296" y="24" key="SettingsEditor/57.24.1503.854@57.24.1503.854" timestamp="1585153901642" />
+    <state x="339" y="24" key="SettingsEditor/57.24.1771.1004@57.24.1771.1004" timestamp="1587376823388" />
     <state x="542" y="243" key="com.intellij.ide.util.TipDialog" timestamp="1586246809084">
       <screen x="57" y="24" width="1771" height="904" />
     </state>
@@ -360,7 +344,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ra/ckan/ChangesManager.java</url>
-          <line>135</line>
+          <line>136</line>
           <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

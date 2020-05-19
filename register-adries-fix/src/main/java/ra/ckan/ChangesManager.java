@@ -75,7 +75,9 @@ public class ChangesManager {
         }
     }
     public void downloadChanges2018(String changesDirPath) throws Exception {
-        String url = "https://data.gov.sk/dataset/7c196993-fcd2-407c-ac6c-f4a4ca68cef5/resource/12637ee7-9bd4-4e7d-a680-abefa27e8d6c/download/zmenovedavky0612.2018.zip";
+//        String url = "http://127.0.0.1/dataset/7c196993-fcd2-407c-ac6c-f4a4ca68cef5/resource/12637ee7-9bd4-4e7d-a680-abefa27e8d6c/download/zmenovedavky0612.2018.zip";
+        String url = "http://127.0.0.1/dataset/7c196993-fcd2-407c-ac6c-f4a4ca68cef5/resource/12637ee7-9bd4-4e7d-a680-abefa27e8d6c/download/zmenovedavky0612.2018.zip";
+//        String url = "http://127.0.0.1/dataset/7c196993-fcd2-407c-ac6c-f4a4ca68cef5/resource/12637ee7-9bd4-4e7d-a680-abefa27e8d6c/download/zmenovedavky0612.2018.zip";
         File zip = new File(changesDirPath + "changes2018.zip");
         FileUtils.copyURLToFile(new URL(url), zip);
 
