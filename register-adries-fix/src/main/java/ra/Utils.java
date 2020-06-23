@@ -1,10 +1,9 @@
 package ra;
 
 import org.apache.http.HttpResponse;
+import ra.additional_fixes.Main;
 
-import javax.json.JsonObject;
 import java.io.*;
-import java.util.Arrays;
 
 /**
  * Contains static methods user across the program.
@@ -15,7 +14,7 @@ public class Utils {
 
 
     public static void jsonStringToFile(String jsonString) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter(Main.DEBUG_FILE_PATH));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(ra.additional_fixes.Main.DEBUG_FILE_PATH));
         writer.write(jsonString);
         writer.close();
     }
@@ -31,7 +30,7 @@ public class Utils {
 
     public static void ckanResponseToFile(HttpResponse response) {
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(Main.DEBUG_FILE_PATH));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(ra.additional_fixes.Main.DEBUG_FILE_PATH));
             writer.write(convertStreamToString(response.getEntity().getContent()));
             writer.close();
         } catch (IOException e) {

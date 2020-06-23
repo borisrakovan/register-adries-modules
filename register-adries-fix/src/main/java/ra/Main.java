@@ -6,7 +6,6 @@ import ra.ckan.ResourceManager;
 import ra.ckan.ResourceInitializer;
 import ra.transform.XmlToJsonTransformer;
 
-import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonString;
 import java.io.*;
@@ -28,9 +27,9 @@ public class Main {
     private static String CHANGES_DIRECTORY_PATH;
     private static String ZIP_DIRECTORY_PATH;
     private static String DOC_DIRECTORY_PATH;
-    static String DEBUG_FILE_PATH;
+    public static String DEBUG_FILE_PATH;
 
-//    static final String RESOURCE_IDS_FILE_PATH = "/resource_ids.txt";
+    //    static final String RESOURCE_IDS_FILE_PATH = "/resource_ids.txt";
     static final String RESOURCE_IDS_FILE_PATH = "/resource_ids_prod.txt";
     private static final String THIRD_DATASTORE_IDS_FILENAME = "init_changed_ids.txt";
 
@@ -38,7 +37,7 @@ public class Main {
     /* SETTINGS, used only for testing purposes */
     private static final boolean TEST = false;
     private static final String TEST_ORG_ID = "ministerstvo_vnutra_ra"; // used only for creating testing datasets
-//    private static final String TEST_ORG_ID = "datagov";
+    //    private static final String TEST_ORG_ID = "datagov";
     // EMPTY STRING FOR PRODUCTION. since older ckan API cannot call purge_dataset I always had to alter the resourcename when testing
     private static final String TEST_SUFFIX = "";
     private static final boolean RUN_DELETE_TEST = false; // true if we only want to delete current testing datasets
@@ -142,24 +141,21 @@ public class Main {
         tester.runInitialTest(RESOURCES_DIRECTORY_PATH, TEST_SUFFIX);
 
         // REGISTERS PRE-TEST
-    	System.out.println("RUNNING TESTS FOR REGISTERS IDs");
+        System.out.println("RUNNING TESTS FOR REGISTERS IDs");
         for(Registers.Register register : registers.getAllRegisters()) {
-        	if (PROD && (register.getRegisterType() == XmlToJsonTransformer.RegisterType.STREET_NAME ||
-                    register.getRegisterType() == XmlToJsonTransformer.RegisterType.BUILDING_NUMBER)) {
-        	    continue;
-            }
-        	System.out.println("RUNNING TEST FOR REGISTER " + register.getName());
-        	JsonObject json = ckanClient.callResourceShow(register.getChangedId());
-        	if (json.getBoolean("success")) {
-        	    boolean dsActive = json.getJsonObject("result").getBoolean("datastore_active");
-            	System.out.println(" \t"+register.getChangedId()+ " datastore active: "+ dsActive);
-            	if (!dsActive)
-            	    throw new RuntimeException("CKAN resource that should contain a datastore does not contain a datastore. Cannot proceed");
-        	} else {
+
+            System.out.println("RUNNING TEST FOR REGISTER " + register.getName());
+            JsonObject json = ckanClient.callResourceShow(register.getChangedId());
+            if (json.getBoolean("success")) {
+                boolean dsActive = json.getJsonObject("result").getBoolean("datastore_active");
+                System.out.println(" \t"+register.getChangedId()+ " datastore active: "+ dsActive);
+                if (!dsActive)
+                    throw new RuntimeException("CKAN resource that should contain a datastore does not contain a datastore. Cannot proceed");
+            } else {
                 throw new RuntimeException(" \t"+register.getChangedId()+ " - ID NOT VALID");
-        	}
-        	json = ckanClient.callResourceShow(register.getConsolidatedId());
-        	if (json.getBoolean("success")) {
+            }
+            json = ckanClient.callResourceShow(register.getConsolidatedId());
+            if (json.getBoolean("success")) {
                 boolean dsActive = json.getJsonObject("result").getBoolean("datastore_active");
                 System.out.println(" \t"+register.getConsolidatedId()+ " datastore active: "+ dsActive);
                 if (!dsActive)
@@ -167,7 +163,7 @@ public class Main {
 
             } else {
                 throw new RuntimeException(" \t"+register.getConsolidatedId()+ " - ID NOT VALID");
-        	}
+            }
         }
         if (uploadingChanges) {
             System.out.println("Going to download all changes files that will be " +
@@ -180,7 +176,7 @@ public class Main {
         for (Registers.Register register : registers.getAllRegisters()) {
 
             System.out.println("\nSTARTING THE CONSOLIDATION PROCESS FOR REGISTER *" + register.getResourceNameBase() + "*\n");
-            
+
             /* STEP 1: Download and zip original resources. */
             resourceManager.downloadAndZip(register, ZIP_DIRECTORY_PATH,TEST_SUFFIX);
             System.out.println("\nALL RESOURCES HAVE BEEN DOWNLOADED AND ZIPPED SUCCESSFULLY\n");
@@ -188,23 +184,7 @@ public class Main {
             /* STEP 2: Delete datastore tables from changed and consolidated resources, entirely delete other resources in datasets. */
             resourceManager.clearDatasets(register, TEST_SUFFIX);
             System.out.println("\nALL DATASTORE TABLES HAVE BEEN REINITIALIZED AND OLD DOCUMENTATIONS AND INITIAL BATCHES DELETED\n");
-            /* PROD PATCH */
-            if (PROD && (register.getRegisterType() == XmlToJsonTransformer.RegisterType.STREET_NAME ||
-                    register.getRegisterType() == XmlToJsonTransformer.RegisterType.BUILDING_NUMBER)) {
-                System.out.println("Replacing datastore resources for " + register.getRegisterType() + " with new ones.");
-                String name = register.getResourceNameBase() + " - zmenové dáta";
-                String packageId = register.getName();
-                String description = register.getChangedResourceDescription();
-                JsonObject result = ckanClient.createDatastoreResource(name, packageId, description, false);
-                String changedId = result.getJsonObject("result").getString("id");
-                register.setChangedId(changedId);
 
-                name = register.getResourceNameBase() + " - konsolidované dáta";
-                description = register.getConsolidatedResourceDescription();
-                result = ckanClient.createDatastoreResource(name, packageId, description, true);
-                String consolidatedId = result.getJsonObject("result").getString("id");
-                register.setConsolidatedId(consolidatedId);
-            }
             /* STEP 3: Upload new documentation (+ point the datastore resources to it) and new initial batches. */
             resourceManager.uploadDocsAndInitBatches(register, DOC_DIRECTORY_PATH, INIT_XML_DIRECTORY_PATH, TEST_SUFFIX);
 //            resourceManager.uploadZipFiles(register, ZIP_DIRECTORY_PATH, TEST_SUFFIX);
@@ -285,7 +265,7 @@ public class Main {
     }
 
     /* checks if all of the needed resources are present in their specified directories, initializes static fields used across
-    * the program that represent paths to individual resource folders and creates the temp/  */
+     * the program that represent paths to individual resource folders and creates the temp/  */
     private static void initializeResourcesFoldersAndPaths(Registers registers) {
         /* init batch */
         INIT_JSON_DIRECTORY_PATH = RESOURCES_DIRECTORY_PATH + "init_batch/json/";
@@ -385,11 +365,6 @@ public class Main {
         br.close();
         for (Registers.Register register : registers.getAllRegisters()) {
             if (register.getChangedId() == null) {
-                /* PROD PATCH */
-                if (PROD && (register.getRegisterType() == XmlToJsonTransformer.RegisterType.STREET_NAME ||
-                        register.getRegisterType() == XmlToJsonTransformer.RegisterType.BUILDING_NUMBER)) {
-                    continue;
-                }
                 throw new RuntimeException("Resource ids missing from file for at least 1 initialized register.");
             }
         }

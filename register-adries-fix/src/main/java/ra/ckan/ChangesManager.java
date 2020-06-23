@@ -3,7 +3,6 @@ package ra.ckan;
 import org.apache.commons.io.FileUtils;
 import org.apache.http.HttpResponse;
 import ra.CkanClient;
-import ra.Main;
 import ra.Registers;
 import ra.transform.XmlToJsonTransformer;
 
@@ -56,7 +55,6 @@ public class ChangesManager {
 //                        }
 //                        String fileName = fileNameJson.getString().replace("_","");
 
-                        String id = resource.getString("id");
                         String fileName = "zmenovadavka" + changesId + ".xml";
                         System.out.println("Going to download " + fileName);
                         String resourceId = resource.getString("id");
@@ -76,8 +74,9 @@ public class ChangesManager {
     }
     public void downloadChanges2018(String changesDirPath) throws Exception {
 //        String url = "http://127.0.0.1/dataset/7c196993-fcd2-407c-ac6c-f4a4ca68cef5/resource/12637ee7-9bd4-4e7d-a680-abefa27e8d6c/download/zmenovedavky0612.2018.zip";
-        String url = "http://127.0.0.1/dataset/7c196993-fcd2-407c-ac6c-f4a4ca68cef5/resource/12637ee7-9bd4-4e7d-a680-abefa27e8d6c/download/zmenovedavky0612.2018.zip";
 //        String url = "http://127.0.0.1/dataset/7c196993-fcd2-407c-ac6c-f4a4ca68cef5/resource/12637ee7-9bd4-4e7d-a680-abefa27e8d6c/download/zmenovedavky0612.2018.zip";
+        String url = "http://127.0.0.1/dataset/7c196993-fcd2-407c-ac6c-f4a4ca68cef5/resource/12637ee7-9bd4-4e7d-a680-abefa27e8d6c/download/zmenovedavkyra.0612.2018.zip";
+//        String url = "https://data.gov.sk/dataset/7c196993-fcd2-407c-ac6c-f4a4ca68cef5/resource/12637ee7-9bd4-4e7d-a680-abefa27e8d6c/download/zmenovedavkyra.0612.2018.zip";
         File zip = new File(changesDirPath + "changes2018.zip");
         FileUtils.copyURLToFile(new URL(url), zip);
 

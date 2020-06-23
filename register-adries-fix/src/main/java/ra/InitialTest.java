@@ -1,14 +1,12 @@
 package ra;
 
 import org.apache.commons.io.FileUtils;
+import ra.additional_fixes.Main;
 
 import javax.json.JsonObject;
-import javax.json.JsonString;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 public class InitialTest {
     private CkanClient ckanClient;

@@ -11,6 +11,22 @@ public class RequestBuilder {
     public RequestBuilder() {
     }
 
+    public String buildDatastoreSearch(Map<String, String> params, Map<String, String> filters) {
+        JsonBuilderFactory factory = Json.createBuilderFactory(Collections.<String, Object>emptyMap());
+        JsonObjectBuilder jsonBuilder = factory.createObjectBuilder();
+        for(String key : params.keySet()){
+            jsonBuilder.add(key, params.get(key));
+        }
+        JsonObjectBuilder filtersBuilder = factory.createObjectBuilder();
+        for (String filter : filters.keySet()) {
+            filtersBuilder.add(filter, filters.get(filter));
+        }
+
+        jsonBuilder.add("filters", filtersBuilder.build());
+
+        return jsonBuilder.build().toString();
+    }
+
     public String buildDatastoreRequest(Map<String, String> params, JsonArray records){
         JsonBuilderFactory factory = Json.createBuilderFactory(Collections.<String, Object>emptyMap());
         JsonObjectBuilder jsonBuilder = factory.createObjectBuilder();

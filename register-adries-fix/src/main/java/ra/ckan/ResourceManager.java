@@ -3,17 +3,14 @@ package ra.ckan;
 import org.apache.commons.codec.Charsets;
 import org.apache.commons.io.FileUtils;
 import ra.CkanClient;
-import ra.Main;
 import ra.Registers;
 import ra.Utils;
-import ra.transform.XmlToJsonTransformer;
 
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonString;
 import java.io.*;
 import java.net.URL;
-import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;

@@ -40,6 +40,7 @@ import java.util.Map;
 public class CkanClient{
     /* production database */
     private static final String URL = "http://127.0.0.1";
+//    private static final String URL = "https://data.gov.sk/";
     /* testing databases */
 //    private static final String TEST_URL = "http://192.168.99.41:5000";
     private static final String TEST_URL = "https://10.31.123.100";
@@ -248,7 +249,7 @@ public class CkanClient{
             else {
                 System.out.println("No need to split JSON array, sending it to CKAN in one request ...");
                 String data = requestBuilder.buildDatastoreRequest(metadata, jsonRecords);
-                entity = new StringEntity(data,Charsets.UTF_8);
+                entity = new StringEntity(data, Charsets.UTF_8);
                 responseJson = executeHttpPostRequest(entity, "datastore_upsert");
                 System.out.println("Update datastore for resource " + resourceId + " successfully ended");
             }
@@ -262,6 +263,16 @@ public class CkanClient{
             System.out.println("Empty Json array received, nothing to do...");
             return null;
         }
+    }
+
+    public JsonObject searchDatastore(String resourceId, Map<String, String> filters) throws IOException {
+        Map<String, String> params = new HashMap<>();
+        params.put("resource_id", resourceId);
+
+        String request = requestBuilder.buildDatastoreSearch(params, filters);
+
+        HttpEntity entity = new StringEntity(request, Charsets.UTF_8);
+        return executeHttpPostRequest(entity, "datastore_search");
     }
 
     /**
@@ -350,7 +361,7 @@ public class CkanClient{
             throw new RuntimeException("HTTP POST request wasn't successful. The ckan response has been saved to the error.json file.");
         }
         ckanResponse = handleJsonResponse(response);
-        System.out.println("CKAN action " + action + " was executed successfully.");
+//        System.out.println("CKAN action " + action + " was executed successfully.");
 
         return ckanResponse;
     }

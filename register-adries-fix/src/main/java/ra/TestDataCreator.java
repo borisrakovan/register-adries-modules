@@ -1,7 +1,7 @@
 package ra;
 
 import org.apache.commons.io.FileUtils;
-import ra.ckan.ResourceManager;
+import ra.additional_fixes.Main;
 import ra.ckan.ResourceInitializer;
 
 //import javax.annotation.Resource;
@@ -33,7 +33,7 @@ public class TestDataCreator {
 
         for(Registers.Register register : registers.getAllRegisters()){
             resourceInit.createEmptyCsvResources(register, testSuffix);
-            resourceInit.initializeDatastoresFromInitBatch(register, Main.INIT_JSON_DIRECTORY_PATH);
+            resourceInit.initializeDatastoresFromInitBatch(register, ra.additional_fixes.Main.INIT_JSON_DIRECTORY_PATH);
             File testResourcesDirectory = new File(TEST_SOURCE_DIR_PATH + register.getResourceNameBase());
             File[] files = testResourcesDirectory.listFiles();
             if(files == null || files.length < 1){

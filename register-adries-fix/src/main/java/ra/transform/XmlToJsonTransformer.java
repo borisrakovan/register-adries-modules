@@ -165,7 +165,6 @@ public class XmlToJsonTransformer {
 
 
     private JsonArray transformXmlToJson(Reader xmlReader, Registers.Register register, String modeAsString) throws XMLStreamException, ParserConfigurationException, XPathExpressionException {
-        System.out.println("Going to transform XML register " + register.getRegisterType().name() + " in mode " + modeAsString);
         XmlToJsonTransformer.Mode mode = XmlToJsonTransformer.Mode.valueOf(modeAsString);
         XmlToJsonTransformer.RegisterType registerType = register.getRegisterType();
         String changeElementName = registerType.changeElementName;
@@ -206,7 +205,6 @@ public class XmlToJsonTransformer {
         }
 
         JsonArray resultArray = jsonArrayBuilder.build();
-        System.out.println("XML to JSON transformation was successful");
         return resultArray;
     }
 

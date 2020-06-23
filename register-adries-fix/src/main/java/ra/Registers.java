@@ -19,9 +19,9 @@ public class Registers {
         registers.add(new Register(RegisterType.MUNICIPALITY, "register-obci","Register obcí", "Obce","03"));
         registers.add(new Register(RegisterType.DISTRICT, "register-casti-obci","Register častí obcí", "Časti obcí","04"));
         registers.add(new Register(RegisterType.STREET_NAME, "register-ulic", "Register ulíc", "Ulice","05"));
-        registers.add(new Register(RegisterType.BUILDING_UNIT, "register-bytov", "Register bytov", "Byty", "08"));
         registers.add(new Register(RegisterType.PROPERTY_REGISTRATION_NUMBER, "register-budov","Register budov (súpisných čísiel)","Budovy", "06"));
         registers.add(new Register(RegisterType.BUILDING_NUMBER,"register-vchodov", "Register vchodov (orientačných čísiel)", "Vchody", "07"));
+        registers.add(new Register(RegisterType.BUILDING_UNIT, "register-bytov", "Register bytov", "Byty", "08"));
     }
 
     /* temporary constructor created for testing purposes */
